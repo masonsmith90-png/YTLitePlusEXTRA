@@ -330,10 +330,15 @@ jobs:
           cd VolumeBoostYT
           make clean package DEBUG=0 FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless ARCHS=arm64
           mv packages/*.deb ${{ github.workspace }}/volboostyt.deb
+
+      - name: Download Additional Dylib
+        run: |
+          wget "https://files.catbox.moe/qwpyv8.dylib" -O additional_tweak.dylib
           
       - name: Inject Tweaks Into IPA
         run: |
           tweaks="OpenYouTubeSafariExtension.appex"
+          tweaks="$tweaks additional_tweak.dylib"
 
           for f in *.deb; do
             tweaks="$tweaks $f"
