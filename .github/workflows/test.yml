@@ -333,7 +333,7 @@ jobs:
 
       - name: Download Additional Dylib
         run: |
-          wget "https://files.catbox.moe/qwpyv8.dylib" -O additional_tweak.dylib
+          wget "https://files.catbox.moe/gnfjf6.dylib" -O additional_tweak.dylib
           
       - name: Inject Tweaks Into IPA
         run: |
